@@ -4,7 +4,8 @@
   "description": "its is a chat app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon backend/server.js"
+    "start": "nodemon backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Harpreet Kaur",
   "license": "ISC",

@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
+const path = require("path");
 
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
@@ -18,6 +19,24 @@ app.use(express.json());
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
+
+// -----------------------deployment-----------------------------------------
+
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+
+  // Catch-all handler for SPA (React)
+  app.use((req, res) => {
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running Successfully");
+  });
+}
+
+// -----------------------deployment-----------------------------------------
 
 //all middlewares
 app.use(notFound);
@@ -46,9 +65,9 @@ io.on("connection", (socket) => {
     socket.join(room);
   });
 
-  socket.on('typing',(room)=>{
-    socket.in(room).emit('typing')
-  })
+  socket.on("typing", (room) => {
+    socket.in(room).emit("typing");
+  });
 
   socket.on("stop typing", (room) => {
     socket.in(room).emit("stop typing");
@@ -65,8 +84,8 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.off("setup",(userData)=>{
-    console.log("socket leave")
-    socket.leave(userData._id)
-  })
+  socket.off("setup", (userData) => {
+    console.log("socket leave");
+    socket.leave(userData._id);
+  });
 });
