@@ -23,7 +23,8 @@ import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 import { useRef } from "react";
 
-const ENDPOINT = "http://localhost:5000"
+const ENDPOINT = "https://talkative-g0ba.onrender.com/" || "http://localhost:5000";
+
 var socket,selectedChatCompare
 
 const ChatBox = ({ fetchAgain, setFetchAgain }) => {
