@@ -105,7 +105,6 @@ const ChatBox = ({ fetchAgain, setFetchAgain }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[selectedChat])
 
-  console.log(notification,"--------------------")
   useEffect(()=>{
     socket.on('message recieved', (newMessageRecieved)=>{
       if(!selectedChatCompare || selectedChatCompare._id!== newMessageRecieved.chat._id){
@@ -192,7 +191,7 @@ const typingHandler = (e) => {
   return (
     <>
       {selectedChat ? (
-        <Box className="flex flex-col w-full h-full bg-white p-5">
+        <Box className="flex flex-col w-full overflow-y-hidden h-full bg-white p-5">
           {/* Chat Header */}
           <Typography
             variant="h6"

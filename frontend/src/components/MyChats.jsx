@@ -150,17 +150,23 @@ const MyChats = ({fetchAgain}) => {
   };
 
   return (
-    <div className="w-[30%] p-4 bg-white rounded-lg shadow">
+    <div className="w-full md:w-[30%] p-4 bg-white rounded-lg shadow">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">My Chats</h2>
+        <h2 className="text-lg sm:text-sm lg:text-base font-semibold text-gray-800">
+          My Chats
+        </h2>
         <Button
           variant="contained"
           color="primary"
           className="!rounded-full !normal-case"
           onClick={() => setOpenModal(true)}
         >
-          New Group Chat
+            {/* Visible only on large screens and above */}
+            <span className="hidden lg:inline">New Group Chat</span>
+
+            {/* Visible only on medium and smaller screens */}
+            <span className="inline lg:hidden">New Group</span>
         </Button>
       </div>
 

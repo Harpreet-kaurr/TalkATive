@@ -20,12 +20,13 @@ const ChatPage = () => {
   <div className='w-full bg-black'>
   
     {user && <Header/>}
-    <Box display="flex"
+    <Box
       justifyContent="space-between"
       width="100%"
       p="10px"
       height="91.5vh"
       gap="30px"
+      className="flex flex-col md:flex-row"
       >
         {user && <MyChats fetchAgain={fetchAgain}/>}
         {user && <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>}

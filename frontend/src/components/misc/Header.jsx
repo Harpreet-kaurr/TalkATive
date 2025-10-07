@@ -99,14 +99,14 @@ const Header = () => {
               onClick={() => setOpenDrawer(true)}
             >
               <Search />
-              <Typography variant="body1" className="font-medium">
+              <Typography variant="body1" className="hidden lg:inline font-medium">
                 Search User
               </Typography>
             </div>
           </Tooltip>
 
           {/* Middle - Title */}
-          <Typography variant="h6" className="text-gray-700 font-semibold">
+          <Typography className="text-gray-700 font-semibold text-sm md:text-xl">
             Talk-A-Tive
           </Typography>
 
