@@ -1,0 +1,22 @@
+{
+  "name": "takeative",
+  "version": "1.0.0",
+  "description": "its is a chat app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "author": "Harpreet Kaur",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.1",
+    "nodemon": "^3.1.10",
+    "react-router-dom": "^7.9.1",
+    "socket.io": "^4.8.1"
+  }
+}
