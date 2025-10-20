@@ -74,7 +74,7 @@ const Login = () => {
 
   const handleGuestLogin = () => {
     setEmail("guest@example.com");
-    setPassword("123456");
+    setPassword("1234567");
     setToast({
       open: true,
       message: "Guest credentials filled",
