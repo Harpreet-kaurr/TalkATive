@@ -115,6 +115,15 @@ const MyChats = ({fetchAgain}) => {
       return;
     }
 
+    if( selectedUsers.length<2){
+      setToast({
+        open: true,
+        message: "Select atleast 2 users to create group",
+        severity: "error",
+      });
+      return;
+    }
+
     try {
       const config = {
         headers: {
@@ -150,7 +159,7 @@ const MyChats = ({fetchAgain}) => {
   };
 
   return (
-    <div className="w-full md:w-[30%] p-4 bg-white rounded-lg shadow">
+    <div className="w-full md:w-[30%] p-4 bg-white rounded-lg shadow h-[40%] overflow-y-auto md:h-full">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg sm:text-sm lg:text-base font-semibold text-gray-800">

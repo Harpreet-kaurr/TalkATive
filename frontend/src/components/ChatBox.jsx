@@ -204,12 +204,12 @@ const typingHandler = (e) => {
               !selectedChat.isGroupChat ? handleOpenModal : handleUpdateModal
             }
           >
-            <IconButton
+            {/* <IconButton
               sx={{ display: { xs: "flex", md: "none" } }}
               onClick={() => setSelectedChat("")}
             >
               <ArrowBackIcon />
-            </IconButton>
+            </IconButton> */}
             {!selectedChat.isGroupChat ? (
               getSender(user, selectedChat.users)
             ) : (
